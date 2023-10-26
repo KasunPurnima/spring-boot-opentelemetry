@@ -1,6 +1,8 @@
 server:
   port: 8090
 
+baseUrl: http://localhost:9595/bank/accounts/getAccountDetailsByNumber/8119008115
+
 spring:
   application:
     name: app

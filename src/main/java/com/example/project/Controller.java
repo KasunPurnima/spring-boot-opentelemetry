@@ -27,6 +27,9 @@ public class Controller {
     @Value("${spring.application.name}")
     private String applicationName;
 
+    @Value("${baseUrl}")
+    private String baseUrl;
+
     public Controller(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
@@ -34,9 +37,10 @@ public class Controller {
     @GetMapping("/method1")
     public ResponseEntity method1() {
         System.out.println("inside method1");
+        System.out.println("ibaseUrlSub"+baseUrl);
         logger.info("Incoming request at {} for request /method1 ");
         logger.info("Incoming request at {} for request /method1 ", applicationName);
-        String response = restTemplate.getForObject(baseUrlSub+"/method2", String.class);
+        String response = restTemplate.getForObject(baseUrl, String.class);
         return ResponseEntity.ok("response from /method1 + " + response);
     }
 
