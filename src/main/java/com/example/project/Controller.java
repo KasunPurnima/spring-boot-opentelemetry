@@ -36,7 +36,7 @@ public class Controller {
         System.out.println("inside method1");
         logger.info("Incoming request at {} for request /method1 ");
         logger.info("Incoming request at {} for request /method1 ", applicationName);
-        String response = restTemplate.getForObject(baseUrlSub, String.class);
+        String response = restTemplate.getForObject(baseUrlSub+"/method2", String.class);
         return ResponseEntity.ok("response from /method1 + " + response);
     }
 
